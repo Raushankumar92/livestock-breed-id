@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+backend/.env
+backend/models/*.keras
+backend/models/*.h5
+backend/models/*.pt
+frontend/node_modules/
+frontend/dist/
+# Training dataset
+cattle/
+animals/
