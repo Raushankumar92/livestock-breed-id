@@ -4,7 +4,6 @@ from dataclasses import dataclass
 import numpy as np
 from PIL import Image
 from tensorflow import keras
-from ultralytics import YOLO
 
 from app.config import Settings
 from app.schemas import Prediction
@@ -36,6 +35,7 @@ class BreedPredictor:
         self.classifier = keras.models.load_model(self.settings.model_path)
         self.labels = json.loads(self.settings.labels_path.read_text(encoding="utf-8"))
         if self.settings.enable_detection:
+            from ultralytics import YOLO
             self.detector = YOLO(self.settings.yolo_model)
 
     def crop_livestock(self, image: Image.Image) -> CropResult:
